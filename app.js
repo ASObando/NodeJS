@@ -7,7 +7,7 @@ app.get('/', function(req, res){
 });
 
 app.get('/about', function(){
-    res.send("<h1>about page</h1>")
+    res.send("<h1>about page</h1>");
 });
 
 app.listen(port, function(){
