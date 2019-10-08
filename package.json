@@ -16,8 +16,8 @@
     "url": "https://github.com/ASObando/NodeJS/issues"
   },
   "homepage": "https://github.com/ASObando/NodeJS#readme",
-  "engines":{
-      "node": "10.x"
+  "engines": {
+    "node": "10.x"
   },
   "dependencies": {
     "express": "^4.17.1"
