@@ -8,13 +8,13 @@ app.set('views', path.join(__dirname, 'views'));
 app.set("view engine", 'ejs');
 
 app.get('/', function(req, res){
-    res.send("Hello World");
+    res.render("index");
 });
 
 app.get('/about', function(req, res){
     res.send("<h1>about page</h1>");
 });
 
-app.listen(port, function(){
+http.createServer(app).listen(port, function(){
 
 });
