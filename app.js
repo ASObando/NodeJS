@@ -11,8 +11,8 @@ app.get('/', function(req, res){
     res.render("index");
 });
 
-app.get('/about', function(req, res){
-    res.send("<h1>about page</h1>");
+app.post('/addtask', function(req, res){
+    res.redirect('/');
 });
 
 http.createServer(app).listen(port, function(){
