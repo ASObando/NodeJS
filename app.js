@@ -24,6 +24,11 @@ app.post('/addtask', function(req, res){
 
 app.post('/removetask', function(req, res){
     var completeTask = req.body.check;
+    if(typeof completeTask === "string"){
+
+    }else{
+
+    }
     res.redirect('/');
 });
 
