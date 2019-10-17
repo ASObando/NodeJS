@@ -21,7 +21,7 @@ app.post('/addtask', function(req, res){
     res.redirect('/');
 });
 
-app.post('/removetasktask', function(req, res){
+app.post('/removetask', function(req, res){
     res.redirect('/');
 });
 
