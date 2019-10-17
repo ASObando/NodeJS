@@ -23,6 +23,7 @@ app.post('/addtask', function(req, res){
 });
 
 app.post('/removetask', function(req, res){
+    var completeTask = req.body.check;
     res.redirect('/');
 });
 
