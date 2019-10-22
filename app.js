@@ -36,7 +36,6 @@ app.post('/addtask', function(req, res){
         }
         res.redirect('/');
     });
-
 });
 
 app.post('/removetask', function(req, res){
