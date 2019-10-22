@@ -30,8 +30,13 @@ app.post('/addtask', function(req, res){
         item: req.body.newtask,
         done: false
     });
-    newTodo.save();
-    res.redirect('/');
+    newTodo.save(function(err){
+        if (err){
+            console.log(err);
+        }
+        res.redirect('/');
+    });
+
 });
 
 app.post('/removetask', function(req, res){
