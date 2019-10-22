@@ -22,6 +22,15 @@ var task = ["clean", "cook"];
 var complete = ["eat","sleep"];
 
 app.get('/', function(req, res){
+    Todo.find(function(err, todo){
+        if(err){
+            console.log(err);
+        }else{
+            for(i = 0; i<todo.length; i++){
+
+            }
+        }
+    });
     res.render("index", {task:task, complete:complete});
 });
 
