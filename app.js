@@ -27,8 +27,13 @@ app.get('/', function(req, res){
             console.log(err);
         }else{
             task = [];
+            complete = [];
             for(i = 0; i<todo.length; i++){
+                if(todo[i].done){
+                    complete.push(todo[i].item);
+                }else{
                 task.push(todo[i].item);
+                }
             }
         }
     });
@@ -50,7 +55,6 @@ app.post('/addtask', function(req, res){
 
 app.post('/removetask', function(req, res){
     var completeTask = req.body.check;
-
     if(typeof completeTask === "string"){
         Todo.updateOne({item: completeTask},{done: true}, function(err){
             console.log(err);
