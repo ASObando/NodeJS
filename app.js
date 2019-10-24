@@ -84,6 +84,8 @@ app.post("/deleteTodo", function(req, res){
             Todo.deleteOne({item: deleteTask}, function(err){
             console.log(err);
         });
+        }
     }
+
     res.redirect('/');
 });
