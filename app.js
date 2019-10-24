@@ -72,3 +72,18 @@ app.post('/removetask', function(req, res){
 http.createServer(app).listen(port, function(){
 
 });
+
+app.post("/deleteTodo", function(req, res){
+    var deleteTask = req.body.delete;
+    if(typeof deleteTask === "string"){
+        Todo.deleteOne({item: deleteTask}, function(err){
+            console.log(err);
+        });
+    }else if (typeof deleteTask === "object"){
+        for(var i = 0; i < deleteTask.length; i++){
+            Todo.deleteOne({item: deleteTask}, function(err){
+            console.log(err);
+        });
+    }
+    res.redirect('/');
+});
