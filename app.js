@@ -19,7 +19,7 @@ let db = mongoose.connection;
 db.on('error', console.error.bind(console, "MongoDB connection error:"));
 
 var task = [];
-var complete = ["eat","sleep"];
+var complete = [];
 
 app.get('/', function(req, res){
     Todo.find(function(err, todo){
@@ -55,15 +55,11 @@ app.post('/removetask', function(req, res){
         Todo.updateOne({item: completeTask},{done: true}, function(err){
             console.log(err);
         });
-        //complete.push(completeTask);
-        //task.splice(task.indexOf(completeTask), 1);
     }else if (typeof completeTask === "object"){
         for(var i = 0; i < completeTask.length; i++){
             Todo.updateOne({item: completeTask[i]},{done: true}, function(err){
             console.log(err);
         });
-            //complete.push(completeTask[i]);
-            //task.splice(task.indexOf(completeTask), 1);
         }
     }
     res.redirect('/');
