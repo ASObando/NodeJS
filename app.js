@@ -25,6 +25,7 @@ app.get('/', function(req, res){
     Todo.find(function(err, todo){
         if(err){
             console.log(err);
+                res.json("error":err);
                 }else{
                     res.json(todo);
                 }
