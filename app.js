@@ -29,7 +29,6 @@ app.get('/', function(req, res){
                     res.json(todo);
                 }
     });
-    res.json();
 });
 
 app.post('/addtask', function(req, res){
