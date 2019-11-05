@@ -32,16 +32,17 @@ app.get('/', function(req, res){
     });
 });
 
-app.post('/addtask', function(req, res){
+app.post('/', function(req, res){
     let newTodo = new Todo({
         item: req.body.newtask,
         done: false
     });
-    newTodo.save(function(err){
+    newTodo.save(function(err, todo){
         if (err){
-            console.log(err);
+            res.json({"Error: ":err})
+        }else{
+            res.json({"Status: ": "Successful", "ObjectId": todo.id})
         }
-        res.redirect('/');
     });
 });
 
