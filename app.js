@@ -46,39 +46,55 @@ app.post('/', function(req, res){
     });
 });
 
-app.post('/removetask', function(req, res){
-    var completeTask = req.body.check;
-    if(typeof completeTask === "string"){
-        Todo.updateOne({item: completeTask},{done: true}, function(err){
-            console.log(err);
+app.put('/', function(req, res){
+    var id = req.body.check;
+    var error = {};
+    if(typeof id === "string"){
+        Todo.updateOne({_id: id},{done: true}, function(err){
+            if (err){
+                error = {"Error: ":err};
+            }
         });
-    }else if (typeof completeTask === "object"){
-        for(var i = 0; i < completeTask.length; i++){
-            Todo.updateOne({item: completeTask[i]},{done: true}, function(err){
-            console.log(err);
+    }else if (typeof id === "object"){
+        for(var i = 0; i < id.length; i++){
+            Todo.updateOne({_id: id[i]},{done: true}, function(err){
+            if (err){
+                error = {"Error: ":err};
+            }
         });
         }
     }
-    res.redirect('/');
+    if(error){
+        res.json(error);
+    }else{
+        res.json({"Status: ": "Successful"})
+    }
 });
 
-http.createServer(app).listen(port, function(){
-
-});
-
-app.post("/deleteTodo", function(req, res){
+app.delete("/", function(req, res){
     var deleteTask = req.body.delete;
+    var error = {};
     if(typeof deleteTask === "string"){
-        Todo.deleteOne({item: deleteTask}, function(err){
-            console.log(err);
+        Todo.deleteOne({_id: deleteTask}, function(err){
+            if (err){
+                error = {"Error: ":err};
+            }
         });
     }else if (typeof deleteTask === "object"){
         for(var i = 0; i < deleteTask.length; i++){
-            Todo.deleteOne({item: deleteTask}, function(err){
-            console.log(err);
+            Todo.deleteOne({_id: deleteTask}, function(err){
+            if (err){
+                error = {"Error: ":err};
+            }
         });
         }
     }
+    if(error){
+        res.json(error);
+    }else{
+        res.json({"Status: ": "Successful"})
+    }
+});
 
-    res.redirect('/');
+http.createServer(app).listen(port, function(){
 });
