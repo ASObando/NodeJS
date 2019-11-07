@@ -21,7 +21,7 @@ db.on('error', console.error.bind(console, "MongoDB connection error:"));
 var task = [];
 var complete = [];
 
-app.get('/', function(req, res){
+app.get('/api', function(req, res){
     Todo.find(function(err, todo){
         if(err){
             console.log(err);

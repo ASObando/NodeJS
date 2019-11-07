@@ -7,6 +7,10 @@ class Home extends Component{
 
     callBackend = async() => {
         try{
+            const resp = await fetch('/api');
+            const respJson = await resp.json();
+            console.log(respJson);
+            this.setState({data:respJson});
 
         }catch(err){
             console.log(err);
