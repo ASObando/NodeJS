@@ -5,6 +5,10 @@ class Home extends Component{
         data: null
     }
 
+    componentDidMount(){
+        this.callBackend();
+    }
+
     callBackend = async() => {
         try{
             const resp = await fetch('/api');
@@ -17,7 +21,6 @@ class Home extends Component{
         }
     }
 
-    //write function for fetch
     render(){
         return(
             <h1>JavaScript and React suck</h1>
