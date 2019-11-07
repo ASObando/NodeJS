@@ -3,7 +3,7 @@ import {Route, Switch} from 'react-router-dom';
 import Home from './pages/Home';
 import './App.css';
 
-class App extends Components {
+class App extends Component {
     render(){
         const App = () => (
             <div>
