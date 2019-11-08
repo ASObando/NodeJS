@@ -22,8 +22,14 @@ class Home extends Component{
     }
 
     render(){
+        const data = this.state.data;
+        var itemList = '';
+        for(var i=0; i< data.length; i++){
+            itemList += data[i].item + ', ';
+        }
         return(
             <h1>JavaScript and React suck</h1>
+            <span>{itemList}</span>
         );
     }
 }
